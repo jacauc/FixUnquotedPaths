@@ -4,6 +4,7 @@ $count = 0
 $count = $ComputerList.Count
 Write-Host "Ready to start on $count computers"
 Write-Host ""
+$pso = New-PSSessionOption -OpenTimeout 3000
 
 foreach ($line in $ComputerList) {
     $pssession = New-PSSession -ComputerName $line -ErrorAction SilentlyContinue -SessionOption $pso
